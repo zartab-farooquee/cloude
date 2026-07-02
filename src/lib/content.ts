@@ -76,6 +76,42 @@ export const benefits = [
   },
 ];
 
+export const coreValues = [
+  {
+    icon: "Rocket",
+    title: "Results Over Hype",
+    description:
+      "We care about outcomes you can measure — hours saved, costs cut, and revenue gained.",
+  },
+  {
+    icon: "ShieldCheck",
+    title: "Trust & Security",
+    description:
+      "We treat your data and your customers' data with the highest standards of care.",
+  },
+  {
+    icon: "Heart",
+    title: "Genuine Partnership",
+    description:
+      "We act as an extension of your team, invested in your long-term success.",
+  },
+  {
+    icon: "Sparkles",
+    title: "Relentless Innovation",
+    description:
+      "We stay on the frontier of AI so you always benefit from what's possible.",
+  },
+];
+
+export const trustReasons = [
+  "Senior AI engineers and automation strategists on every project",
+  "Transparent, fixed-price quotes with no surprises",
+  "Security-first architecture and compliance-aligned practices",
+  "Ongoing monitoring, support, and optimization after launch",
+  "A proven track record across multiple industries",
+  "Automations designed to deliver measurable ROI",
+];
+
 export const industries = [
   { icon: "Building2", name: "Real Estate", blurb: "Automated lead capture, nurturing, and viewings booking." },
   { icon: "HeartPulse", name: "Healthcare", blurb: "Appointment scheduling, reminders, and patient intake." },

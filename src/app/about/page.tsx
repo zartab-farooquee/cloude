@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Target, Eye, Heart, ShieldCheck, Users, Rocket, Sparkles } from "lucide-react";
+import { Target, Eye, Users } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Icon } from "@/components/ui/Icon";
 import { PageHero } from "@/components/sections/PageHero";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site";
+import { coreValues, trustReasons } from "@/lib/content";
 import { pageMetadata, breadcrumbSchema, organizationSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -16,38 +18,6 @@ export const metadata: Metadata = pageMetadata({
   path: "/about",
   keywords: ["AI Solutions Company", "AI Automation Agency", "about ScriptZen"],
 });
-
-const values = [
-  {
-    icon: Rocket,
-    title: "Results Over Hype",
-    text: "We care about outcomes you can measure — hours saved, costs cut, and revenue gained.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Trust & Security",
-    text: "We treat your data and your customers' data with the highest standards of care.",
-  },
-  {
-    icon: Heart,
-    title: "Genuine Partnership",
-    text: "We act as an extension of your team, invested in your long-term success.",
-  },
-  {
-    icon: Sparkles,
-    title: "Relentless Innovation",
-    text: "We stay on the frontier of AI so you always benefit from what's possible.",
-  },
-];
-
-const trustReasons = [
-  "Senior AI engineers and automation strategists on every project",
-  "Transparent, fixed-price quotes with no surprises",
-  "Security-first architecture and compliance-aligned practices",
-  "Ongoing monitoring, support, and optimization after launch",
-  "A proven track record across multiple industries",
-  "Automations designed to deliver measurable ROI",
-];
 
 export default function AboutPage() {
   return (
@@ -161,17 +131,19 @@ export default function AboutPage() {
             subtitle="These values shape every automation we build and every relationship we form."
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((v, i) => (
+            {coreValues.map((v, i) => (
               <Reveal
                 key={v.title}
                 delay={i * 0.05}
                 className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6"
               >
                 <span className="inline-grid h-11 w-11 place-items-center rounded-xl brand-gradient-bg text-white">
-                  <v.icon className="h-5 w-5" />
+                  <Icon name={v.icon} className="h-5 w-5" />
                 </span>
                 <h3 className="font-bold">{v.title}</h3>
-                <p className="text-sm leading-relaxed text-muted">{v.text}</p>
+                <p className="text-sm leading-relaxed text-muted">
+                  {v.description}
+                </p>
               </Reveal>
             ))}
           </div>

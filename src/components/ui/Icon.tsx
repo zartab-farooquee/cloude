@@ -36,6 +36,8 @@ import {
   MapPin,
   Send,
   Calendar,
+  Eye,
+  Heart,
   type LucideIcon,
 } from "lucide-react";
 
@@ -78,6 +80,8 @@ const iconMap: Record<string, LucideIcon> = {
   MapPin,
   Send,
   Calendar,
+  Eye,
+  Heart,
 };
 
 export function Icon({

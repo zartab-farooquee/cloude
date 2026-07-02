@@ -108,11 +108,7 @@ export function websiteSchema() {
     "@type": "WebSite",
     name: siteConfig.name,
     url: siteConfig.url,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${siteConfig.url}/blog?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
+    publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
   };
 }
 
