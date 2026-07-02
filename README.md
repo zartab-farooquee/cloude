@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ScriptZen — AI Automation & Business Solutions Website
+
+A modern, premium, SEO-optimized marketing website for **ScriptZen**, an AI
+automation agency. Built for lead generation, high conversion, and strong
+Google rankings.
+
+## Tech Stack
+
+- **Next.js 15** (App Router, Server-Side Rendering / SSG)
+- **TypeScript**
+- **Tailwind CSS v4**
+- **Framer Motion** (animations & hover effects)
+- **next-themes** (premium dark/light mode)
+- **lucide-react** (icons)
+
+## Features
+
+### Pages
+- **Home** — hero, services, why choose us, benefits, industries, testimonials,
+  case studies, FAQ, contact form, final CTA
+- **Services** — 8 dedicated services, each with description, benefits, process
+  and FAQs (AI Chatbots, AI Voice Agents, Workflow Automation, WhatsApp
+  Automation, CRM Automation, Lead Generation, Email Automation, Custom AI)
+- **About** — story, mission, vision, core values, why businesses trust us
+- **Case Studies** — before/after results, ROI metrics, success stories
+- **Blog** — SEO-ready listing with category filtering + individual article pages
+- **Contact** — form, email, phone, WhatsApp button, Google Map embed
+
+### Conversion elements
+- Sticky mobile CTA bar
+- Floating WhatsApp button
+- Consultation / lead-capture form (`/api/contact`)
+- Trust badges, client logos, testimonials
+
+### SEO
+- Semantic HTML5 with proper H1/H2/H3 hierarchy
+- Per-page metadata, canonical URLs, Open Graph & Twitter cards
+- JSON-LD schema: Organization, LocalBusiness, WebSite, Service, FAQPage,
+  BreadcrumbList, BlogPosting
+- Dynamic `sitemap.xml` and `robots.txt`
+- Dynamically generated Open Graph / Twitter images
+- Web app manifest + SVG favicon
+- Fast Core Web Vitals (static rendering, font optimization)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run start    # run production build
+npm run lint     # lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configuration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All business details (name, contact info, address, social links, WhatsApp
+number, stats) live in [`src/lib/site.ts`](src/lib/site.ts). Update these
+before going live — in particular:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `url` — your production domain (used for canonical URLs, sitemap, schema)
+- `phone`, `phoneHref`, `whatsapp`, `email`, `address`, `geo`
+- `social` handles
 
-## Learn More
+Content data lives in `src/lib/`:
+- `services.ts` — services, benefits, process, FAQs
+- `content.ts` — why-choose, benefits, industries, testimonials, case studies, FAQs
+- `blog.ts` — blog posts & categories
 
-To learn more about Next.js, take a look at the following resources:
+### Contact form
+The form posts to `src/app/api/contact/route.ts`, which currently validates and
+logs the lead. To deliver leads, wire it to your provider (Resend, HubSpot,
+Slack webhook, etc.) using environment variables.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Analytics & Search Console
+- Add your analytics snippet (e.g. Google Analytics / GA4) in
+  `src/app/layout.tsx`.
+- Verify the domain in Google Search Console and submit `/sitemap.xml`.
